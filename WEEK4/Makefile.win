@@ -1,0 +1,49 @@
+# Project: OPENMPWEEK4
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Q1.o one_to_10.o q3.o q4.o q5.o q6.o QQ2.o
+LINKOBJ  = main.o Q1.o one_to_10.o q3.o q4.o q5.o q6.o QQ2.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -fopenmp
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = OPENMPWEEK4.exe
+CXXFLAGS = $(CXXINCS) -fopenmp
+CFLAGS   = $(INCS) -fopenmp
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Q1.o: Q1.cpp
+	$(CPP) -c Q1.cpp -o Q1.o $(CXXFLAGS)
+
+one_to_10.o: one_to_10.cpp
+	$(CPP) -c one_to_10.cpp -o one_to_10.o $(CXXFLAGS)
+
+q3.o: q3.cpp
+	$(CPP) -c q3.cpp -o q3.o $(CXXFLAGS)
+
+q4.o: q4.cpp
+	$(CPP) -c q4.cpp -o q4.o $(CXXFLAGS)
+
+q5.o: q5.cpp
+	$(CPP) -c q5.cpp -o q5.o $(CXXFLAGS)
+
+q6.o: q6.cpp
+	$(CPP) -c q6.cpp -o q6.o $(CXXFLAGS)
+
+QQ2.o: QQ2.cpp
+	$(CPP) -c QQ2.cpp -o QQ2.o $(CXXFLAGS)
