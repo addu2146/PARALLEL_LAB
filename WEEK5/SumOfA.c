@@ -47,7 +47,7 @@ int main() {
             Sum += arr[i];
         }
         end = omp_get_wtime(); // End time here
-        ptime = (double)(end - start) / CLOCKS_PER_SEC * 1000; //  milliseconds
+        ptime = (double)(end - start)* 1000; //  milliseconds
         printf("The sum is: %d\n", Sum);
         printf("The total time taken with serial execution is %f ms\n", ptime);
     }
