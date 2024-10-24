@@ -12,7 +12,7 @@ void SumArrayParallel(int arr[], int n, int numt) {
     }
     etime = omp_get_wtime();
     ptime = (etime - stime) * 1000; // Convert to milliseconds
-    printf("The sum is : %d\n", Sum);
+    printf("The Sum of all the elements is : %d\n", Sum);
     printf("Total time taken to execute the loop with %d threads: %f ms\n", numt, ptime);
 }
 
@@ -42,12 +42,12 @@ int main() {
        SumArrayParallel(arr, n, numt);
     } else {
         int Sum = 0;
-        start = clock(); // Start timing here
+        start = omp_get_wtime(); // Start timing here
         for (int i = 0; i < n; i++) {
             Sum += arr[i];
         }
-        end = clock(); // End timing here
-        ptime = (double)(end - start) / CLOCKS_PER_SEC * 1000; // Convert to milliseconds
+        end = omp_get_wtime(); // End time here
+        ptime = (double)(end - start) / CLOCKS_PER_SEC * 1000; //  milliseconds
         printf("The sum is: %d\n", Sum);
         printf("The total time taken with serial execution is %f ms\n", ptime);
     }
